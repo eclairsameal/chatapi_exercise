@@ -9,3 +9,11 @@ response = openai.Completion.create(
 )
 print(response)  # print all response
 print(response.choices[0].text)
+
+# max_tokens
+response = openai.Completion.create(
+    engine="text-davinci-003",
+    prompt="who was Carl sagan?",  # query
+    max_tokens=4000
+)
+print(response)  # print all response
