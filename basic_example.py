@@ -41,3 +41,16 @@ response = openai.Completion.create(
 )
 for i in range(len(response.choices)):
     print(response.choices[i].text)
+
+    
+# temperature
+temperature_list = [0, 0.5, 0.7, 1]
+for temperature in temperature_list:
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt="Write a poem inspired by Bukowsky",
+        max_tokens=2000,
+        temperature=temperature
+    )
+    response = response.choices[0].text.replace('\n', '') + '\n'
+    print(str(temperature) + ':\n' + response)
