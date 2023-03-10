@@ -17,3 +17,15 @@ response = openai.Completion.create(
     max_tokens=4000
 )
 print(response)  # print all response
+
+
+# Other models
+models_list = ["text-davinci-003", "text-davinci-002", "text-curie-001", "text-babbage-001", "text-ada-001"]
+for models in models_list:
+    response = openai.Completion.create(
+        model=models,
+        prompt="Who was Carl Sagan?",
+        max_tokens=2000
+        )
+    response = response.choices[0].text.replace('\n', '') + '\n'
+    print(models + ':\n' + response)
